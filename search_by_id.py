@@ -7,7 +7,7 @@ from HTTPClient import NVPair
  
 searchByIdTest = Test(1, "Test SearchById")
  
-json1 = '''{"ProductId":123}'''
+json1 = '''{"ProductId":"123"}'''
 
 static String convertStreamToString(java.io.InputStream is) {
     java.util.Scanner s = new java.util.Scanner(is).useDelimiter("\\A");
