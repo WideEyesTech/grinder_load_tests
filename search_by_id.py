@@ -11,10 +11,6 @@ json1 = '''{"ProductId":"123"}'''
  
 class TestRunner:
     def __call__(self):
-        if grinder.runNumber > 0 or grinder.threadNumber > 0:
-            raise RuntimeError("Use limited to one thread, one run; "
-                               "see Amazon Web Services terms and conditions")
- 
         request = HTTPRequest(url="http://api-mirror.wide-eyes.it")
         searchByIdTest.record(request)
  
