@@ -7,7 +7,7 @@ from HTTPClient import NVPair
  
 searchByIdTest = Test(1, "Test SearchById")
  
-json1 = '''{"ProductId":"123"}'''
+json1 = '''{"uid":"123","country":"es"}'''
 
 static String convertStreamToString(java.io.InputStream is) {
     java.util.Scanner s = new java.util.Scanner(is).useDelimiter("\\A");
@@ -17,10 +17,10 @@ static String convertStreamToString(java.io.InputStream is) {
  
 class TestRunner:
     def __call__(self):
-        request = HTTPRequest(url="http://api-mirror.wide-eyes.it")
+        request = HTTPRequest(url="http://v1.api-mirror.wide-eyes.it")
         searchByIdTest.record(request)
  
-        bytes = request.POST('/v1/SearchById', json1, ( NVPair('Content-Type', 'application/json'),  NVPair('apikey', 'helloworld'), )).inputStream
+        bytes = request.POST('/v2/SearchById', json1, ( NVPair('Content-Type', 'application/json'),  NVPair('apikey', 'helloworld'), )).inputStream
 
         s = new java.util.Scanner(bytes).useDelimiter("\\A");
         result = s.hasNext() ? s.next() : "";
